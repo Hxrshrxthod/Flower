@@ -1,0 +1,16 @@
+export const LOVE_MESSAGES = [
+  "You are my favorite place.",
+  "Every path somehow leads back to you.",
+  "Even sunsets feel warmer with you.",
+  "I'd choose you in every lifetime.",
+  "You make ordinary days magical.",
+  "You are the reason I believe in magic.",
+  "With you, every moment is a garden in bloom.",
+  "You're my home, wherever we are.",
+  "In a world full of flowers, you are my garden.",
+  "You have no idea how often I think of you.",
+  "Every flower here blooms just for you.",
+  "You're the kind of love that feels like sunlight.",
+  "If I could paint a feeling, it would look like you.",
+  "You are my favorite thought at the end of every day.",
+]
