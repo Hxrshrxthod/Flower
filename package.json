@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "cd dist && git init && git add -A && git commit -m \"Deploy to GitHub Pages\" && git push -f https://github.com/Hxrshrxthod/Flower.git main:gh-pages && cd .."
+    "deploy": "cd dist && git init && git add -A && git commit --allow-empty -m \"Deploy to GitHub Pages\" && git push -f https://github.com/Hxrshrxthod/Flower.git main:gh-pages && cd .."
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
