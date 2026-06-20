@@ -150,7 +150,7 @@ export default function LoveMessageCard({
             style={{ color: '#BE185D', opacity: 0.7, letterSpacing: '0.05em' }}
             onClick={() => setShowPhoto(true)}
           >
-            {/* (tap to view the most cutest thing everrrr) */}
+            (tap to view the most cutest thing everrrr)
           </p>
 
           {/* Main Message */}
