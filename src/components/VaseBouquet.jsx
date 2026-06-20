@@ -8,7 +8,7 @@ import DaisySVG from './flowers/DaisySVG'
 const FLOWER_MAP = { rose: RoseSVG, peony: PeonySVG, daisy: DaisySVG }
 
 const FLOWER_CONFIGS = {
-  rose:  { aspect: 1.375, bloomYRatio: 38 / 110, size: 130 },
+  rose:  { aspect: 1.4,   bloomYRatio: 38 / 110, size: 130 },
   peony: { aspect: 1.43,  bloomYRatio: 40 / 120, size: 140 },
   daisy: { aspect: 1.45,  bloomYRatio: 34 / 110, size: 120 },
 }
@@ -40,12 +40,20 @@ export default function VaseBouquet({ flowers }) {
 
   useEffect(() => {
     if (!containerRef.current) return
+    let lastWidth = containerRef.current.clientWidth
+    let lastHeight = containerRef.current.clientHeight
+    setDimensions({ width: lastWidth, height: lastHeight })
+
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        setDimensions({
-          width: entry.contentRect.width,
-          height: entry.contentRect.height,
-        })
+        const newWidth = entry.contentRect.width
+        const newHeight = entry.contentRect.height
+        // Prevent layout recalculation on minor height changes (like mobile address bar shifts)
+        if (newWidth !== lastWidth || Math.abs(newHeight - lastHeight) > 80) {
+          lastWidth = newWidth
+          lastHeight = newHeight
+          setDimensions({ width: newWidth, height: newHeight })
+        }
       }
     })
     resizeObserver.observe(containerRef.current)
@@ -267,7 +275,11 @@ export default function VaseBouquet({ flowers }) {
                 ease: 'easeInOut',
                 delay: 1.5 + (index % 3) * 0.2,
               }}
-              style={{ width: '100%', height: '100%' }}
+              style={{ 
+                width: '100%', 
+                height: '100%',
+                transformOrigin: `${size / 2}px ${bloomY}px`
+              }}
             >
               <FlowerComp size={size} hideStem={true} />
             </motion.div>
