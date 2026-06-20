@@ -40,7 +40,7 @@ export default function LoadingScreen({ onComplete }) {
         animate={{ opacity: [0, 1, 1, 0.7] }}
         transition={{ duration: 3, times: [0, 0.25, 0.75, 1], ease: 'easeInOut' }}
       >
-        For culrzyyyyy... ❤️
+        For curlzyyyyy... ❤️
       </motion.p>
 
       {/* Subtitle */}

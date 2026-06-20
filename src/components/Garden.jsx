@@ -155,7 +155,7 @@ export default function Garden() {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <p className="font-lora italic text-sm md:text-base" style={{ color: '#C46A4A', opacity: 0.85 }}>
-              ✨ Click anywhere to add a flower for culrzyyyyy
+              ✨ Click anywhere to add a flower for curlzyyyyy
             </p>
           </motion.div>
         )}
