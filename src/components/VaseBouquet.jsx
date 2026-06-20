@@ -79,18 +79,21 @@ export default function VaseBouquet({ flowers }) {
         }}
       >
         {flowers.map((flower, index) => {
-          if (flower.x === undefined || flower.y === undefined) return null
+          if (flower.rx === undefined || flower.ry === undefined) return null
+
+          const isMobile = dimensions.width < 640
+          const scaleFactor = isMobile ? 0.6 : 1.0
 
           const config = FLOWER_CONFIGS[flower.type] || FLOWER_CONFIGS.rose
-          const size = config.size
+          const size = config.size * scaleFactor
           const aspect = config.aspect
           const bloomYRatio = config.bloomYRatio
 
           const H = size * aspect
           const bloomY = H * bloomYRatio
 
-          const targetX = flower.x
-          const targetY = flower.y
+          const targetX = neckX + flower.rx * dimensions.width
+          const targetY = neckY - flower.ry * dimensions.height
 
           // Custom stem goes all the way to the bloom center
           const stemEndX = targetX
@@ -101,7 +104,7 @@ export default function VaseBouquet({ flowers }) {
 
           // Realistic bending curve: introduce horizontal arching bend magnitude that scales with height
           const bendDirection = index % 2 === 0 ? 1 : -1
-          const bendMagnitude = Math.min(Math.abs(dx) * 0.15 + Math.abs(dy) * 0.22, 105)
+          const bendMagnitude = Math.min(Math.abs(dx) * 0.15 + Math.abs(dy) * 0.22, 105 * scaleFactor)
           const cpOffset = bendDirection * bendMagnitude
 
           // Control points configuration for a sweeping dramatic S-curve
@@ -129,7 +132,7 @@ export default function VaseBouquet({ flowers }) {
               <motion.path
                 d={pathD}
                 stroke="#6B9E77"
-                strokeWidth={6.5}
+                strokeWidth={6.5 * scaleFactor}
                 strokeLinecap="round"
                 fill="none"
                 initial={{ pathLength: 0, opacity: 0 }}
@@ -176,19 +179,22 @@ export default function VaseBouquet({ flowers }) {
 
       {/* Flower Heads */}
       {flowers.map((flower, index) => {
-        if (flower.x === undefined || flower.y === undefined) return null
+        if (flower.rx === undefined || flower.ry === undefined) return null
+
+        const isMobile = dimensions.width < 640
+        const scaleFactor = isMobile ? 0.6 : 1.0
 
         const FlowerComp = FLOWER_MAP[flower.type] || RoseSVG
         const config = FLOWER_CONFIGS[flower.type] || FLOWER_CONFIGS.rose
-        const size = config.size
+        const size = config.size * scaleFactor
         const aspect = config.aspect
         const bloomYRatio = config.bloomYRatio
 
         const H = size * aspect
         const bloomY = H * bloomYRatio
 
-        const targetX = flower.x
-        const targetY = flower.y
+        const targetX = neckX + flower.rx * dimensions.width
+        const targetY = neckY - flower.ry * dimensions.height
 
         // Position the wrapper so its bloom center is exactly at (targetX, targetY).
         // Set transformOrigin to the bloom center (size / 2, bloomY) to keep it perfectly joined with the custom stem.

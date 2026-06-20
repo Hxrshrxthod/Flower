@@ -44,9 +44,13 @@ export default function Garden() {
     // Clamp y so the flower is always at least 220px from the bottom (above the vase neck)
     const y = Math.min(e.clientY - rect.top, rect.height - 220)
 
+    // Store relative coordinates so flowers scale and reposition correctly on mobile/resizes
+    const rx = (x - rect.width / 2) / rect.width
+    const ry = (rect.height - 162 - y) / rect.height
+
     const type = FLOWER_TYPES[Math.floor(Math.random() * FLOWER_TYPES.length)]
     const id = ++flowerIdCounter
-    setBouquetFlowers(prev => [...prev, { id, type, x, y }])
+    setBouquetFlowers(prev => [...prev, { id, type, rx, ry }])
   }, [])
 
   return (

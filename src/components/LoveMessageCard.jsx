@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import curlzyPhoto from '../assets/curlzy.JPG'
 
 const PETAL_COLORS = ['#FFB6C8', '#FBBF24', '#FFC8D8', '#F9A8D4', '#FFD6E0', '#FFF0C4']
 const PETAL_SHAPES = [
@@ -225,7 +226,7 @@ export default function LoveMessageCard({
             >
               {/* PHOTO SECTION: Place your image source below */}
               <img
-                src="/src/assets/curlzy.jpg" // REPLACE THIS FILE PATH WITH YOUR CHOSEN PHOTO (e.g. "/src/assets/your_photo.jpg" or "/my_photo.png")
+                src={curlzyPhoto}
                 alt="Special Moment"
                 className="w-full h-auto object-contain max-h-[75vh]"
               />
