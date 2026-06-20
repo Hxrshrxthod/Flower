@@ -50,7 +50,7 @@ function FallingPetal({ index }) {
 
 export default function LoveMessageCard({
   message = "The flowers for the special one , the flowers which will be with u every moment.I know they are not the real ones 😔but here are some flowers for my pretty flower",
-  reminder = "You are doing veryyy greatt and the most imp thing is that you are giving your 200% but haa sometimes things don't go as the way we plann and thats completely OKAYYY .Your competition is with you and not with others so dont compare urself with others ever, just focus on the thinggss.What matters the most is the effort and time you invest.",
+  reminder = "You are doing veryyy greatt and the most imp thing is that you are giving your 200% but haa sometimes things don't go as the way we plann and thats completely OKAYYY .Your competition is with you and not with others so dont compare urself with others ever, just focus on the thinggss.What matters the most are the effort and time you invest.",
   onClose
 }) {
   const petals = useMemo(() => Array.from({ length: 24 }), [])
