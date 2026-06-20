@@ -98,14 +98,40 @@ export default function LoveMessageCard({
         >
           {/* Clickable Cherry Blossom Flower for Photo Pop-up */}
           <motion.div
-            onClick={() => setShowPhoto(true)}
-            className="absolute -top-5 left-1/2 text-3xl select-none filter drop-shadow-md cursor-pointer"
-            whileHover={{ scale: 1.25 }}
-            whileTap={{ scale: 0.95 }}
-            title="Click to view the most cutesttttt thinggg!"
-            style={{ x: '-50%', transformOrigin: 'center center' }}
+            className="absolute -top-6 left-1/2 cursor-pointer select-none"
+            style={{ x: '-50%', transformOrigin: 'center center', zIndex: 110 }}
           >
-            🌸
+            {/* Pulsing ring indicator (Sonar wave) */}
+            <motion.div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: 50,
+                height: 50,
+                left: -7,
+                top: -7,
+                border: '1.5px solid rgba(244, 114, 182, 0.6)',
+                background: 'rgba(244, 114, 182, 0.15)',
+              }}
+              animate={{ scale: [0.8, 1.6], opacity: [0.85, 0] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
+            />
+            
+            {/* The Flower itself */}
+            <motion.div
+              onClick={() => setShowPhoto(true)}
+              className="text-3xl filter drop-shadow-md"
+              animate={{ scale: [1, 1.12, 1], rotate: [-6, 6, -6] }}
+              whileHover={{ scale: 1.28 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                scale: { duration: 2.2, repeat: Infinity, ease: 'easeInOut' },
+                rotate: { duration: 3.2, repeat: Infinity, ease: 'easeInOut' }
+              }}
+              title="Click to view the most cutesttttt thinggg!"
+              style={{ transformOrigin: 'center center' }}
+            >
+              🌸
+            </motion.div>
           </motion.div>
           <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-2xl select-none">✨</div>
 
@@ -145,13 +171,8 @@ export default function LoveMessageCard({
           >
             For My Pretty Flower 🌸
           </h3>
-          <p
-            className="font-lora text-[10px] uppercase tracking-widest mb-4 cursor-pointer hover:opacity-100 transition-opacity"
-            style={{ color: '#BE185D', opacity: 0.7, letterSpacing: '0.05em' }}
-            onClick={() => setShowPhoto(true)}
-          >
-            (tap to view the most cutest thing everrrr)
-          </p>
+          {/* Spacer */}
+          <div className="mb-4" />
 
           {/* Main Message */}
           <p className="font-playfair text-lg md:text-xl italic leading-relaxed text-shadow-warm font-medium" style={{ color: '#9D174D' }}>
