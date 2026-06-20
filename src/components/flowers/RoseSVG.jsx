@@ -38,7 +38,7 @@ export default function RoseSVG({ size = 56, giant = false, hideStem = false }) 
           cy={cy + 14 * Math.cos(a * Math.PI / 180)}
           rx={8}
           ry={16}
-          fill={i % 2 === 0 ? '#BE185D' : '#E11D7A'}
+          fill={i % 2 === 0 ? '#DC2626' : '#991B1B'}
           opacity={0.75}
           transform={`rotate(${a}, ${cx + 18 * Math.sin(a * Math.PI / 180)}, ${cy + 14 * Math.cos(a * Math.PI / 180)})`}
           initial={giant ? { scale: 0 } : { scale: 1 }}
@@ -55,7 +55,7 @@ export default function RoseSVG({ size = 56, giant = false, hideStem = false }) 
           cy={cy + 8 * Math.cos(a * Math.PI / 180)}
           rx={7}
           ry={13}
-          fill="#F43F8A"
+          fill="#EF4444"
           opacity={0.85}
           transform={`rotate(${a + 15}, ${cx + 10 * Math.sin(a * Math.PI / 180)}, ${cy + 8 * Math.cos(a * Math.PI / 180)})`}
           initial={giant ? { scale: 0 } : { scale: 1 }}
@@ -71,7 +71,7 @@ export default function RoseSVG({ size = 56, giant = false, hideStem = false }) 
           cx={cx + 5 * Math.sin(a * Math.PI / 180)}
           cy={cy + 4 * Math.cos(a * Math.PI / 180)}
           rx={5} ry={9}
-          fill="#FB7BB8"
+          fill="#F87171"
           opacity={0.9}
           transform={`rotate(${a}, ${cx + 5 * Math.sin(a * Math.PI / 180)}, ${cy + 4 * Math.cos(a * Math.PI / 180)})`}
           initial={giant ? { scale: 0 } : { scale: 1 }}
