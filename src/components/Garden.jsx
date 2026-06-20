@@ -48,9 +48,18 @@ export default function Garden() {
     const rx = (x - rect.width / 2) / rect.width
     const ry = (rect.height - 162 - y) / rect.height
 
-    const type = FLOWER_TYPES[Math.floor(Math.random() * FLOWER_TYPES.length)]
     const id = ++flowerIdCounter
-    setBouquetFlowers(prev => [...prev, { id, type, rx, ry }])
+    setBouquetFlowers(prev => {
+      const lastFlower = prev[prev.length - 1]
+      const lastType = lastFlower ? lastFlower.type : null
+
+      // Filter out the last placed type to prevent immediate repetition
+      const availableTypes = FLOWER_TYPES.filter(t => t !== lastType)
+      const typesToSelect = availableTypes.length > 0 ? availableTypes : FLOWER_TYPES
+      const type = typesToSelect[Math.floor(Math.random() * typesToSelect.length)]
+
+      return [...prev, { id, type, rx, ry }]
+    })
   }, [])
 
   return (
