@@ -12,7 +12,7 @@ const FLOWER_CONFIGS = {
   rose:  { aspect: 1.4,   bloomYRatio: 38 / 110, size: 130 },
   peony: { aspect: 1.43,  bloomYRatio: 40 / 120, size: 140 },
   daisy: { aspect: 1.45,  bloomYRatio: 34 / 110, size: 120 },
-  tulip: { aspect: 1.67,  bloomYRatio: 50 / 120, size: 110 },
+  tulip: { aspect: 1.0,   bloomYRatio: 0.85,     size: 100 },
 }
 
 // Cubic Bezier helper to find position and tangent angle at parameter t (0 to 1)
